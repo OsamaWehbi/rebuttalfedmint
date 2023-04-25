@@ -27,7 +27,8 @@ from src.federated.components.trainer_manager import SeqTrainerManager
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('main')
 
-client_data = preload('mnist', LabelDistributor(100, 2, 600, 600))
+client_data = preload('cifar10', ShardDistributor(200,3))
+# client_data = preload('mnist', LabelDistributor(100, 2, 600, 600))
 test_data = preload('mnist10k').as_tensor()
 warmup_rounds = 2
 training_rounds = 3
